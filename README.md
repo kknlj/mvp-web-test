@@ -1,4 +1,7 @@
-# Voice Notes Web App Test
+# Note
+The mvp web test that I participated in the last few days ,its requirements described is below. It gives you some utility methods to call, but I didn't really see how to use them, so I didn't use them. Of course there is no code separation to make it easier to reuse. The core of this project is to call recording to get the audio stream, and send the audio stream to the server via websocket. The server side by calling the deepgram api for real-time transcription, the audio stream into text and then through the websocket sent to the client to display. There are a few details to note, 1. it provides the useAudioRecorder component which has been through the float32To16BitPCM method to covert 32-bit to 16-bit, this is in order to be compatible with the deepgram, and this data as a parameter passed to the callback function named dataCb. 2. You need to convert the 16-bit audio stream to binary via the buffer method and send it to the server via websocket. 3. You need to wrap the client-side connection into a useref so that each time the component is re-rendered it doesn't reconnect to the server, ensuring the stability of the connection.
+
+## Voice Notes Web App Test
 
 This test aims to assess your ability to create a voice notes web application that utilizes real-time audio streaming and transcription. The task involves implementing a user-friendly interface where users can record their voice, view their live transcription, edit their transcription, and copy or clear it as needed.
 
